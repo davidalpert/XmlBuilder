@@ -1,7 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XmlBuilder", "XmlBuilder.csproj", "{BA30BD8B-AF5B-4159-B66B-C0E9895AD9FE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XmlBuilder", "XmlBuilder\XmlBuilder.csproj", "{BA30BD8B-AF5B-4159-B66B-C0E9895AD9FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XmlBuilder.Tests", "XmlBuilder.Tests\XmlBuilder.Tests.csproj", "{0768FF2D-8123-475F-B727-4820383D54A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,6 +15,10 @@ Global
 		{BA30BD8B-AF5B-4159-B66B-C0E9895AD9FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA30BD8B-AF5B-4159-B66B-C0E9895AD9FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA30BD8B-AF5B-4159-B66B-C0E9895AD9FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0768FF2D-8123-475F-B727-4820383D54A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0768FF2D-8123-475F-B727-4820383D54A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0768FF2D-8123-475F-B727-4820383D54A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0768FF2D-8123-475F-B727-4820383D54A4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
