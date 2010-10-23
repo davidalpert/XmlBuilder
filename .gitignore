@@ -1,0 +1,16 @@
+_BuildReports
+StyleCop.Cache
+_notes
+.project
+*.swp
+*~
+bin
+obj
+*.suo
+*.user
+*.cache
+_ReSharper.*
+*resharper*
+*Resharper*
+*.dll
+*.pdb
