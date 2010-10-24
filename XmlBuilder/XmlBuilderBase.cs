@@ -44,6 +44,16 @@ namespace SergioPereira.Xml
 		/// <summary>
 		/// Starts a new child element
 		/// </summary>
+		/// <param name="build">logic that builds the element</param>
+		public virtual void Element(int n, Action<XmlElementBuilder, int> build)
+		{
+			string name = build.Method.GetParameters()[0].Name;
+            Element(name, n, new Dictionary<string, string>(), build);
+		}
+
+		/// <summary>
+		/// Starts a new child element
+		/// </summary>
 		/// <param name="localName">local name of the element</param>
 		/// <param name="build">logic that builds the element</param>
 		public virtual void Element( string localName, Action<XmlElementBuilder> build )
@@ -51,7 +61,7 @@ namespace SergioPereira.Xml
 			Element( localName, new Dictionary<string, string>(), build );
 		}
 
-		/// <summary>
+        /// <summary>
 		/// Starts a new child element
 		/// </summary>
 		/// <param name="localName">local name of the element</param>
@@ -72,8 +82,18 @@ namespace SergioPereira.Xml
 			_contentAdded = true;
 		}
 
-		Dictionary<string, string> _attributes = new Dictionary<string, string>();
+        private void Element(string name, int n, Dictionary<string, string> dictionary, Action<XmlElementBuilder, int> build)
+        {
+            for (int i = 1; i <= n; i++)
+            {
+                Action<XmlElementBuilder> buildOneChild = child => build(child, i);
+                Element(name, dictionary, buildOneChild);
+            }
+        }
 
+		
+        Dictionary<string, string> _attributes = new Dictionary<string, string>();
+		
 		/// <summary>
 		/// Gets or sets an attribute value on the element
 		/// </summary>

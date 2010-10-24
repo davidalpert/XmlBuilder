@@ -210,7 +210,6 @@ namespace SergioPereira.Xml
 			{
 				xml.Indentation = 4;
 				xml.Formatting = System.Xml.Formatting.Indented;
-
 				xml.Root( children =>
 				{
 					children.Element( e =>
@@ -220,6 +219,7 @@ namespace SergioPereira.Xml
 				} );
 			} );
 
+    }
 			s.ShouldEqual(
 @"<?xml version=""1.0"" encoding=""us-ascii""?>
 <children>
@@ -227,4 +227,28 @@ namespace SergioPereira.Xml
 </children>" );
 		}
 	}
+
+        [Fact]
+        public void Can_repeat_elements()
+        {
+            var actual = XmlBuilder.Build(Encoding.UTF8, xml =>
+            {
+                xml.Formatting = System.Xml.Formatting.None;
+
+                xml.Root(children =>
+                {
+                    children.Comment("Children below...");
+
+                    children.Element(9, (child,i) =>
+                    {
+                        child["age"] = i.ToString();
+                        child["referenceNumber"] = "ref-" + i;
+
+                        child.AppendText("child & content #" + i);
+                    });
+                });
+            });
+            actual.Substring(1).ShouldEqual(WithWriter());
+        }
+    }
 }
