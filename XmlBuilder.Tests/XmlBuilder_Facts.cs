@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.IO;
 using System.Text;
+using System.Xml;
 using SergioPereira.Xml;
 using Should;
 using Xunit;
-using System.Xml;
-using System.IO;
 
 namespace SergioPereira.Xml
 {
@@ -18,7 +16,7 @@ namespace SergioPereira.Xml
             string s = XmlBuilder.Build(Encoding.ASCII, xml =>
             {
                 xml.Indentation = 4;
-                xml.Formatting = System.Xml.Formatting.Indented;
+                xml.Formatting = Formatting.Indented;
 
 				xml.Root( children =>
 				{
@@ -51,15 +49,11 @@ namespace SergioPereira.Xml
     <child age=""9"" referenceNumber=""ref-9"">child &amp; content #9</child>
 </children>" );
 
-		}
 
 		[Fact]
 		public void Can_Build_to_a_file()
 		{
 			XmlBuilder.Build( "file.xml", Encoding.UTF8, xml =>
-			{
-				xml.Indentation = 4;
-				xml.Formatting = System.Xml.Formatting.Indented;
 
 				xml.Root( children =>
 				{
@@ -219,27 +213,25 @@ namespace SergioPereira.Xml
 				} );
 			} );
 
-    }
 			s.ShouldEqual(
 @"<?xml version=""1.0"" encoding=""us-ascii""?>
 <children>
     <e></e>
 </children>" );
 		}
-	}
 
         [Fact]
         public void Can_repeat_elements()
         {
             var actual = XmlBuilder.Build(Encoding.UTF8, xml =>
             {
-                xml.Formatting = System.Xml.Formatting.None;
+                xml.Formatting = Formatting.None;
 
                 xml.Root(children =>
                 {
                     children.Comment("Children below...");
 
-                    children.Element(9, (child,i) =>
+                    children.Element(9, (child, i) =>
                     {
                         child["age"] = i.ToString();
                         child["referenceNumber"] = "ref-" + i;
