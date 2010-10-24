@@ -10,15 +10,15 @@ using System.IO;
 
 namespace SergioPereira.Xml
 {
-	public class Basic_XmlBuilder_Facts
-	{
-		[Fact]
-		public void Can_Build_to_a_string()
-		{
-			string s = XmlBuilder.Build( Encoding.ASCII, xml =>
-			{
-				xml.Indentation = 4;
-				xml.Formatting = System.Xml.Formatting.Indented;
+    public class XmlBuilder_Facts
+    {
+        [Fact]
+        public void Can_Build_to_a_string()
+        {
+            string s = XmlBuilder.Build(Encoding.ASCII, xml =>
+            {
+                xml.Indentation = 4;
+                xml.Formatting = System.Xml.Formatting.Indented;
 
 				xml.Root( children =>
 				{
