@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="Basic_XmlBuilder_Facts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StringWriterWithEncoding.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\XmlBuilder\XmlBuilder.csproj">
