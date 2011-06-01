@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XmlBuilder", "XmlBuilder\XmlBuilder.csproj", "{BA30BD8B-AF5B-4159-B66B-C0E9895AD9FE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XmlBuilder.Tests", "XmlBuilder.Tests\XmlBuilder.Tests.csproj", "{0768FF2D-8123-475F-B727-4820383D54A4}"
